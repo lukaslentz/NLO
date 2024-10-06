@@ -49,13 +49,7 @@ v_lin = ... # velocity
 # plot results
 fig = plt.figure()
 #
-ax = fig.add_subplot(1, 1, 1)
-ax.plot(t,x_p,color='blue')
-# ax.plot(x_lin,v_lin,color='red')
-ax.set_xlabel("Displacement")
-ax.set_ylabel("Velocity")
-ax.legend(['Full Equation','Linearization'],loc='upper right')
-ax.set_title(f'Solution for Initial Conditions x0 = {x0:.2f} and v0 = {v0:.2f}')
+...
 #
 plt.show()
 #
