@@ -1,0 +1,125 @@
+#
+#*******************************************NLO_WS24/25*******************************************
+#                     Störungsrechnung nach Lindstedt/Poincare für den Duffingschwinger
+#*************************************************************************************************
+#Ertellt von: L.Lentz@umwelt-campus.de
+#*************************************************************************************************
+#
+#Benötigte Bibliotheken laden
+#******************************************************************************
+import numpy as np
+import matplotlib.pyplot as plt
+from sympy import *
+from scipy.integrate import solve_ivp
+#
+def cut_order(exp,coeff,n):
+   return ...
+#
+#Symbole definieren
+t = ...#Zeit
+mu = ...#Buchhaltungsparameter
+omega = ...#Parameter der Dgl
+om0, om1, om2 = ...
+#
+#Ansatz für omega0
+eqom = ... # Gleichung für omega
+sol_om0 = ... # aufgelöst nach omega0
+#
+# #Funktionen definieren
+x = ...#gesuchte Funktion
+x0 = ...#nullte Näherung
+x1 = ...#erste Näherung
+x2 = ...#zweite Näherung
+#
+#Ansatz für x
+x = ...
+#
+#Dgl
+dgl = ...
+#
+#Terme nach Größenordnungen von eps sortieren
+dgl_0 = ...
+dgl_1 = ...
+dgl_2 = ...
+#
+#Nullte Näherung lösen
+#******************************************************************************
+sol_x0 = ...
+# 
+A = ...
+#
+# Bestimmung der Integrationskonstanten
+eq0_1 = ...# Gleichung für x0(0)=A
+eq0_2 = ...# Gleichung für v0(0)=0
+const_0 = ...# Bestimmung der Konstanten
+# 
+sol_x0 = ...
+# 
+#Erste Näherung lösen
+#******************************************************************************
+dgl_1 = ... # Lösung für x0 in dgl_1 einsetzen und trigonometrische Potenzen auswerten
+#
+sak_0 = ... # Säkularterm
+sol_sak_0 = ... # om1 aus Säkularterm bestimmen 
+#
+sol_x1 = ... # Lösung für x1 unter Berücksichtigung der Säkularterme
+# 
+# Bestimmung der Integrationskonstanten
+eq1_1 = ...# Gleichung für x1(0)=0
+eq1_2 = ...# Gleichung für v1(0)=0
+const_1 = ...# Bestimmung der Konstanten
+#
+sol_x1 = ...
+# 
+# 
+#
+om0_eq_1 = ... # Gleichung für om0 aufstellen, dabei mu nur bis hin zu linearen Termen berücksichtigen
+sol_omega_1 = ... # Gleichung nach omega lösen, liefert omega(A) in 1.Näherung
+# 
+#Zweite Näherung lösen
+#******************************************************************************
+dgl_2 = ... # Lösung für x0 und x1 in dgl_2 einsetzen und trigonometrische Potenzen auswerten
+#
+sak_1 = ... # Säkularterm
+sol_sak_1 = ... # om2 aus Säkularterm bestimmen 
+#
+om0_eq_2 = ... # Gleichung für om1 aufstellen, dabei mu nur bis hin zu quadratischen Termen berücksichtigen
+sol_omega_2 = ... # Gleichung nach omega lösen, liefert omega(A) in 2.Näherung
+#
+#Graphische Auswertung
+#******************************************************************************
+#Parameter
+p_om = ...
+p_mu = ...
+p_A = ...
+#
+#Amplituden
+sol_1 = ...
+sol_2 = ...
+#  
+#
+x_sol_1 = ...
+x_sol_2 = ...
+#
+tvals = ...
+x_1 = ...
+x_2 = ...
+#
+fig = plt.figure()
+#
+...
+# 
+#
+#Kreisfrequenz
+om_sol_1 = ...
+om_sol_2 = ...
+# 
+As = ...
+om_1 = ...
+om_2 = ...
+#
+fig = plt.figure()
+# 
+...
+# 
+plt.show()
