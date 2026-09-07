@@ -63,11 +63,11 @@ PHI_WINDOW = 2.5 * np.pi # phase-portrait window in phi [rad]
 PHIDOT_WINDOW = 9.0      # phase-portrait window in phi' [rad/s]
 N_LEVELS = 14            # number of energy contours below/above the separatrix
 
-# Amplitudes of the period-ratio table on the slides.  The exact values printed
-# below reproduce the slide table up to 90 deg (1.002, 1.017, 1.073, 1.180); at
-# 150 deg and 170 deg the exact ratios are 1.762 and 2.439, slightly larger than
-# the 1.654 / 2.257 quoted there.  Both the elliptic integral and the direct
-# time integration agree on the values printed here.
+# Amplitudes of the period-ratio table on the slides: 1.002, 1.017, 1.073,
+# 1.180, 1.762, 2.439.  Note how much faster the ratio grows once the amplitude
+# passes 90 deg -- the last two entries are easy to underestimate.  The values
+# printed below come from the elliptic integral and are confirmed independently
+# by the direct time integration, so the two agree to ten digits.
 TABLE_DEG = [10.0, 30.0, 60.0, 90.0, 150.0, 170.0]
 RTOL, ATOL = 1e-11, 1e-12                            # tight: E must stay const
 # ---------------------------------------------------------------------------

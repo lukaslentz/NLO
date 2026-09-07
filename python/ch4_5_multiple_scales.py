@@ -11,8 +11,9 @@ resonance the solvability condition at order eps yields the *modulation*
     da/dT1       = -mu*a + (F/2)*sin(gamma)
     a*dgamma/dT1 =  sigma*a - (3/8)*a**3 + (F/2)*cos(gamma)
 
-(the slides use the opposite sign of both forcing terms, i.e. gamma shifted by
-pi; the steady states and their stability are of course the same)
+with the phase convention gamma = sigma*T1 - psi, so that
+x ~ a*cos(Omega*t - gamma).  Replacing gamma by gamma + pi flips the sign of
+both forcing terms and describes the same system.
 
 This script does four things with them:
 
@@ -85,12 +86,14 @@ def slow_flow_cartesian(_t1, pq, sigma):
         da/dT1       = -mu*a + (F/2)*sin(gamma)
         a*dgamma/dT1 =  sigma*a - (3/8)*a**3 + (F/2)*cos(gamma)
 
-    Note on conventions: the slides write both forcing terms with a minus sign,
-    which is the same system with gamma replaced by gamma + pi.  The physics --
-    and in particular the frequency-response equation below, in which F appears
-    squared -- is identical; the signs used here are the ones consistent with
-    x ~ a*cos(Omega*t - gamma), so that the phase portrait can be compared
-    directly with the full simulation.
+    Note on conventions: replacing gamma by gamma + pi flips the sign of both
+    forcing terms and yields an equally valid form of the same system.  The
+    physics -- and in particular the frequency-response equation below, in
+    which F appears squared -- is unaffected, but the signs used here are the
+    ones consistent with gamma = sigma*T1 - psi and x ~ a*cos(Omega*t - gamma),
+    so that the slow-flow phase portrait can be overlaid directly on the full
+    simulation.  Getting this wrong puts the basin boundary of the slow flow on
+    the wrong side, an error that does not shrink as eps is reduced.
 
     With p = a*cos(gamma) and q = a*sin(gamma) this becomes
 

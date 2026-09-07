@@ -39,15 +39,15 @@ What this script computes
 The figure shows the four Poincare sections side by side; the title of each
 panel reports F, the detected period and the measured Lyapunov exponent.
 
-Parameter note
---------------
-The compressed listing on the slide uses the *hardening single-well* Duffing
-oscillator (alpha = +1).  With the light damping used there that system stays
-locked on a period-1 response for every forcing amplitude listed, so it cannot
-show a doubling cascade.  The classical two-well ("Holmes") Duffing oscillator,
-alpha = -1, eps = +1, 2*delta = 0.3, Omega = 1.2, is the standard example that
-really does produce period-1 -> period-2 -> period-4 -> chaos as F increases,
-and it is used here.  Setting ALPHA = +1.0 below reproduces the slide's system.
+Why the twin-well system
+------------------------
+The oscillator used here is the classical two-well ("Holmes") Duffing
+oscillator, alpha = -1, eps = +1, 2*delta = 0.3, Omega = 1.2.  The twin-well
+form is not a matter of taste: the *hardening single-well* oscillator
+(alpha = +1) has a single potential minimum and no saddle, hence no homoclinic
+tangle, and it stays locked on a period-1 response for every forcing amplitude
+in this range -- its largest Lyapunov exponent remains pinned at -delta.  Set
+ALPHA = +1.0 below and the cascade disappears; that is worth trying once.
 
 Runtime: about 30 s.  The chaotic panel dominates it; N_SAMPLE_CHAOS is the
 knob -- doubling it doubles the runtime.

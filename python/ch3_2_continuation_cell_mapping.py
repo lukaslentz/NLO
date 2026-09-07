@@ -52,13 +52,14 @@ DELTA = 0.05        # damping ratio delta  (equation has 2*delta*x')
 EPS = 0.1           # cubic stiffness coefficient, > 0 -> hardening spring
 FHAT = 0.3          # forcing amplitude
 
-# Excitation frequency for the cell mapping panel.  The slides quote
-# Omega = 1.1, but with delta = 0.05, eps = 0.1, fhat = 0.3 the continuation
-# below puts the two folds at Omega = 1.152 and Omega = 1.212, so Omega = 1.1
-# is still in the single-solution range and no multistability can be seen
-# there.  Setting OMEGA_CM = None therefore picks the midpoint of the computed
-# fold interval, which is guaranteed to be inside the bistable window; put a
-# number here to override (values between the two folds make sense).
+# Excitation frequency for the cell mapping panel.  Cell mapping only shows
+# something interesting inside the bistable window, which for delta = 0.05,
+# eps = 0.1, fhat = 0.3 is bounded by the two folds at Omega = 1.152 and
+# Omega = 1.212 computed by the continuation below.  Rather than hard-coding a
+# frequency, OMEGA_CM = None picks the midpoint of that computed interval, so
+# the choice stays correct if the parameters above are changed.  Put a number
+# here to override (values between the two folds make sense; outside them only
+# one solution exists and every cell maps to the same attractor).
 OMEGA_CM = None
 
 # --- continuation settings ---
@@ -80,16 +81,16 @@ N_PERIODS = 10          # excitation periods integrated per cell (see below)
 # Refining to N_CELLS = 200 (40000 cells) sharpens the basin boundary but costs
 # roughly 30x more time and memory - well outside the 60 s budget here.
 #
-# Why N_PERIODS > 1: the slides describe SCM with exactly one period per cell.
-# With a coarse grid and light damping (delta = 0.05) the contraction during a
-# single period is smaller than one cell width, so dozens of cells around an
-# attractor map onto themselves and SCM reports dozens of spurious one-cell
-# periodic groups for one and the same attractor.  Using the k-th iterate of
-# the stroboscopic map (k = N_PERIODS) is the standard cure: the trajectories
-# contract by exp(-delta*k*T) before the image cell is taken, so only the cells
-# that really contain an attractor stay self-mapping.  The map is still a
-# deterministic cell-to-cell map and the basins are unchanged.  Set
-# N_PERIODS = 1 to reproduce the fragmented picture of the literal algorithm.
+# Why N_PERIODS > 1: the textbook description of SCM integrates exactly one
+# period per cell.  With a coarse grid and light damping (delta = 0.05) the
+# contraction during a single period is smaller than one cell width, so dozens
+# of cells around an attractor map onto themselves and SCM reports dozens of
+# spurious one-cell periodic groups for one and the same attractor.  Using the
+# k-th iterate of the stroboscopic map (k = N_PERIODS) is the standard cure:
+# the trajectories contract by exp(-delta*k*T) before the image cell is taken,
+# so only the cells that really contain an attractor stay self-mapping.  The
+# map is still a deterministic cell-to-cell map and the basins are unchanged.
+# Set N_PERIODS = 1 to see the fragmented picture of the literal algorithm.
 
 RTOL, ATOL = 1e-9, 1e-11
 

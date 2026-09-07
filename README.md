@@ -47,7 +47,18 @@ Requirements: Python 3.9 or newer, `numpy`, `scipy`, `matplotlib`.
 
 ## A note on the models
 
-Where the compressed slide listing and the physics disagreed, the script follows the
-physics and says so in its module docstring. The clearest case is chaos in the Duffing
-oscillator: the single-well form is never chaotic, so chapters 5.1 and 6.2 use the twin-well
-(Holmes) form. Each such deviation is documented at the top of the script concerned.
+Two chapters use the twin-well ("Holmes") Duffing oscillator rather than the hardening
+single-well form:
+
+    x'' + 2 delta x' - x + eps x^3 = F cos(Omega t)
+
+This is not a stylistic choice. The single-well oscillator has one potential minimum and no
+saddle point, hence no homoclinic tangle: it stays on a period-1 response for every forcing
+amplitude in the range considered, its largest Lyapunov exponent remains pinned at -delta,
+and it has only one attractor, so no basin boundary exists. Period doubling, strange
+attractors, positive Lyapunov exponents and fractal basins all require the twin-well form.
+The scripts for chapters 5.1 and 6.2 say so in their docstrings and invite you to flip the
+sign of the linear stiffness and watch the phenomena disappear.
+
+Every script states its own model and parameter values at the top, and prints the key
+numbers it computes, so any claim it makes can be checked against its own output.

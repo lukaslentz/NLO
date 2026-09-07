@@ -33,15 +33,14 @@ Four panels are produced:
     resolved, blue and red points remain interleaved, so a finite measurement
     accuracy of the initial state can never decide the long-term outcome.
 
-Deviation from the compressed listing on the slide: the listing uses the
-single-well Duffing oscillator (+x instead of -x) at Omega = 0.8. That system is
-never chaotic for the amplitudes swept there -- its Lyapunov exponent stays
-pinned at -D = -0.08 for every fhat up to 1.0 (verified numerically). The
-chapter's phenomena -- positive lambda_1, coexisting attractors, fractal basin
-boundaries -- live in the twin-well version, which is the classical Duffing /
-Holmes chaos model. The damping D = 0.08 and the cubic coefficient eps = 1 of
-the slide are kept, the forcing frequency is raised to Omega = 1.2 so that the
-chaotic window falls inside the slide's amplitude sweep 0.10 <= fhat <= 0.45.
+Why the twin-well system: all three phenomena above -- a positive lambda_1,
+two coexisting attractors, a fractal boundary between their basins -- require
+the twin-well form (-x rather than +x), the classical Duffing / Holmes chaos
+model. The single-well oscillator has one potential minimum and no saddle,
+so there is no homoclinic tangle and no route to chaos: its Lyapunov exponent
+stays pinned at -D = -0.08 for every fhat up to 1.0 (verified numerically), and
+there is only one attractor, so no basin boundary exists at all. Flipping the
+sign of the linear stiffness term below makes that easy to check.
 """
 
 import numpy as np

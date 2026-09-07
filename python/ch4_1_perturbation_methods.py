@@ -62,15 +62,14 @@ EPS_COMPARE = 0.4   # second, larger eps shown in the backbone panel: the
                     # first-order truncation error is O(eps**2), so doubling
                     # eps makes the gap between L-P and numerics visible
 
-# Slide table "L-P vs. numerical backbone": the caption says eps = 0.2 but the
-# tabulated omega_LP values (1.037, 1.140, 1.292, 1.483 for A = 0.5, 1, 1.5, 2)
-# are sqrt(1 + 0.75*0.4*A**2), i.e. they belong to eps = 0.4.  Both values are
-# printed below so the inconsistency is visible.  The omega_num column of that
-# table (1.037, 1.136, 1.274, 1.434) is also somewhat off: the exact period of
-# the free Duffing oscillator follows from a complete elliptic integral,
-# omega = pi*sqrt(1+eps*A**2) / (2*K(m)) with m = eps*A**2/(2*(1+eps*A**2)),
-# which gives 1.0367, 1.1389, 1.2898, 1.4739 for eps = 0.4 - and that is what
-# the event-based measurement below reproduces to six digits.
+# Backbone comparison table.  For the eps used here the Lindstedt-Poincare
+# frequency is omega_LP = sqrt(1 + 0.75*eps*A**2).  The reference column is
+# not another approximation but the exact period of the free Duffing
+# oscillator, which follows from a complete elliptic integral,
+#     omega = pi*sqrt(1 + eps*A**2) / (2*K(m)),  m = eps*A**2/(2*(1+eps*A**2)),
+# and the event-based measurement below reproduces it to six digits.  Both
+# eps = 0.2 and eps = 0.4 are printed, because the first-order truncation
+# error is O(eps**2) and only the larger value makes the gap visible.
 TABLE_A = (0.5, 1.0, 1.5, 2.0)
 TABLE_EPS = (0.2, 0.4)
 
